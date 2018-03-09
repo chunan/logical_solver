@@ -76,12 +76,12 @@ class Solver(object):
     return [self.letter[a] for a in self.answers]
 
   def solve(self):
-    answers = []
+    solutions = []
     value_index = 0
     while value_index >= 0:
       # Reach the bottom of the tree.
       if value_index >= self.num_predicates:
-        answers.append(self.pretty_answers())
+        solutions.append(self.pretty_answers())
         print('[SOLVED] answer={}'.format(self.pretty_answers()))
         value_index -= 1
         continue
@@ -100,6 +100,6 @@ class Solver(object):
       value_index += 1
 
     print('Answers:')
-    for i, ans in enumerate(answers):
+    for i, ans in enumerate(solutions):
       print(' {}: {}'.format(i, ans))
-    return answers
+    return solutions
