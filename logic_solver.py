@@ -54,7 +54,7 @@ class Solver(object):
     self.predicates = predicates[:]
     self.answers = [0] * self.num_predicates
     self.num_options = num_options
-    self.dependent = [[] for _ in range(self.num_predicates)]
+    self.dependent = [set() for _ in range(self.num_predicates)]
     self.letter = [' '] + [chr(65 + i) for i in range(self.num_options)] + ['$']
 
     for i, pred in enumerate(predicates):
@@ -66,7 +66,7 @@ class Solver(object):
 
   def add_dependent(self, predicate_index, value_index):
     """Special function to create dependent dict."""
-    self.dependent[value_index].append(self.predicates[predicate_index])
+    self.dependent[value_index].add(self.predicates[predicate_index])
     return 0
  
   def get(self, value_index):
