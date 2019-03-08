@@ -88,6 +88,7 @@ class Solver(object):
         the partial set of values (obatined via getter) violates the predicate,
         or return True otherwise.
       num_options: (int) number of possible values for each variable.
+    """
     self.num_predicates = len(predicates)
     self.predicates = predicates[:]
     self.answers = [0] * self.num_predicates
